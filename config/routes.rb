@@ -50,11 +50,7 @@ Kuangkuang::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-<<<<<<< HEAD
   root :to => 'welcome#index'
-=======
-  # root :to => 'home#index'
->>>>>>> 026451a2c7a99b02622049b0f682b43e5bbb9916
 
   # See how all your routes lay out with "rake routes"
 
