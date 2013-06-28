@@ -34,4 +34,13 @@ Kuangkuang::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+
+  # See everything in the log (default is :info)
+  config.log_level = :warn
+
+  config.log_tags = [
+    lambda { |req| Time.now }, 
+    lambda{|req|  req.cookie_jar[:session_id]}
+  ]
 end

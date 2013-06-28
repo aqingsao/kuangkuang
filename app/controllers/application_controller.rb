@@ -2,15 +2,16 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery
 
   def login
-    Rails.logger.level = 2   	 
-  	logger.warn "User #{params[:user]} logged in successfully"
-  	session[:user_id] = params[:user]
+    session[:user_id] = params[:user]
+    cookies[:session_id] = session[:session_id]
+  	logger.warn "User #{session[:user_id]} logged in successfully with session id: #{session[:session_id]}"
   	redirect_to "/"
   end
 
   def logout
-  	logger.warn "User #{params[:user]} logged out"
-  	session[:user_id] = nil
+  	logger.warn "User #{session[:user_id]} logged out successfully."
+    reset_session
+
   	redirect_to "/"
   end
 end
