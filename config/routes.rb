@@ -18,6 +18,8 @@ Kuangkuang::Application.routes.draw do
   get 'products/compare', to: 'products#compare'
   resources :products
 
+  get 'carts/add', to: 'carts#add'
+
   # Sample resource route with options:
   # resources :products do
   #   member do
