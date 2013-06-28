@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   def logout
   	logger.warn "User #{session[:user_id]} logged out successfully."
     reset_session
+    cookies.delete :session_id
 
   	redirect_to "/"
   end
