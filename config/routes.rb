@@ -15,10 +15,13 @@ Kuangkuang::Application.routes.draw do
   get 'logout', to: 'application#logout'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
+
   get 'products/compare', to: 'products#compare'
   resources :products
 
   get 'carts/add', to: 'carts#add'
+
+  get 'orders/add', to: 'orders#add'
 
   # Sample resource route with options:
   # resources :products do

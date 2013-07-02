@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
 
 	def show
 		@product = Product.find(params[:id])
-		logger.warn "User is browsing product #{params[:id]}"
+		logger.warn "User is viewing detail of product #{params[:id]}"
 	end
 	
 	def index
