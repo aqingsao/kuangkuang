@@ -22,6 +22,8 @@ Kuangkuang::Application.routes.draw do
   get 'carts/add', to: 'carts#add'
 
   get 'orders/add', to: 'orders#add'
+  get 'orders/confirm', to: 'orders#confirm'
+  get 'orders/cancel', to: 'orders#cancel'
 
   # Sample resource route with options:
   # resources :products do

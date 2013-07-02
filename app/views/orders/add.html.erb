@@ -1,3 +1,7 @@
 <h1>Adding products to order <%= @orderId%></h1>
 
-<div><%= @productId %></div>
+<div><span>Products: </span><%= @productId %></div>
+
+<div>
+	<%= link_to "Confirm Order", orders_confirm_path %>
+</div>

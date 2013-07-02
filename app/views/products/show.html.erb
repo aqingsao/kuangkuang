@@ -7,3 +7,12 @@
   <strong>Price:</strong>
   <%= @product.price %>
 </p>
+
+
+<div>
+	<%= link_to "Add to shopping cart", "/carts/add?id=#{@product.id}"%>
+</div>	
+
+<div>
+	<%= link_to "Back to Products", products_path %>
+</div>

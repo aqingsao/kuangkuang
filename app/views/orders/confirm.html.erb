@@ -1,0 +1,7 @@
+<h1>You've confirmed order <%= @orderId%></h1>
+
+<div>Products: <%= @productIds.join(", ") %></div>
+
+<div>
+	<%= link_to "Cancel Order", orders_cancel_path %>
+</div>
