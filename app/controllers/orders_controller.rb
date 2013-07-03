@@ -24,7 +24,9 @@ class OrdersController < ApplicationController
 		@orderId = params[:id]
 
 		logger.warn "User confirmed order: #{@orderId}"
-		redirect_to :action=>"index", flash: {notice: "User confirmed order: #{@orderId}"}
+
+		flash[:info] = "User confirmed order: #{params[:id]}"
+		redirect_to :action=>"index"
 	end
 	def cancel
 		Order.find(params[:id]).delete
