@@ -1,26 +1,37 @@
 class OrdersController < ApplicationController
 	@@orderIndex = 1
+	@@orders = Hash.new()
+	# @@userOrders = Hash.new([])
 
 	def initialize()
 		@now = Time.now
-		@orders = Hash.new([])
   	end
 
-	def add
+	def 
 		@orderId = format("%s%04d", @now.strftime("%Y%m%d"), @@orderIndex+=1)
-		@productId = params[:id]
-		@orders[@orderId].push @productId
-		logger.warn "User added product #{params[:id]} to order: #{@orderId}"
+		# @@userOrders[userId].push(@orderId)
+		@@orders[@orderId] = params[:productIds]
+		logger.warn "User added product #{@productIds} to order: #{@orderId}"
+
+		redirect_to :action => "show", :id => @orderId
+	end
+
+	def show
+		@orderId = params[:id]
+		@productIds = @@orders[@orderId]
 	end
 	
 	def confirm
-		@orderId = params[:orderId]
+		@orderId = params[:id]
 		@productIds = @orders[@orderId]
+
 		logger.warn "User confirmed order: #{@orderId}"
 	end
 	def cancel
-		@orderId = params[:orderId]
+		@orderId = params[:id]
 		logger.warn "User canceled order: #{@orderId}"
+	end
+	def index
 	end
 end
 

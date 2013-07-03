@@ -1,10 +1,12 @@
-<h1>Adding products to cart</h1>
+<h1>Shopping cart</h1>
 
-<ul>
-<% @productIds.each do |productId| %>
-	<li>
-		<span style="padding-right: 20px"><%= productId%></span>
-		<span><%= link_to "Buy it", "/orders/add?id=#{productId}"%></span>
-	</li>	
-<% end %> 
-</ul>
+<div>There are <%= @productIds.length %> products in this shopping cart</div>
+
+<%= form_for :order, url: orders_path do |f| %>
+	<% @productIds.each do |productId| %>
+		<%= f.label :productId, productId %>
+		<%= f.hidden_field :productId, name: 'productIds[]', value: productId%>
+	<% end%>
+	<br/>
+	<%= f.submit %>
+<% end%>

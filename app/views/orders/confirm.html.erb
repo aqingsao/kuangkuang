@@ -3,5 +3,5 @@
 <div>Products: <%= @productIds.join(", ") %></div>
 
 <div>
-	<%= link_to "Cancel Order", orders_cancel_path %>
+	<%= link_to "Cancel Order", orders_cancel_path(@orderId) %>
 </div>
