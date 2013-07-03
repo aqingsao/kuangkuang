@@ -43,7 +43,9 @@ class OrdersController < ApplicationController
 
 
 	def pay
-		logger.warn "User started to pay order: #{params[:id]}"
+		logger.warn "User payed order: #{params[:id]}"
+		flash[:info] = "User payed order: #{params[:id]}"
+		redirect_to :action=>"index"
 	end
 end
 
