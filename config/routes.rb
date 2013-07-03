@@ -29,6 +29,7 @@ Kuangkuang::Application.routes.draw do
     member do
       get 'confirm'
       get 'cancel'
+      get 'pay'
     end
   end
 

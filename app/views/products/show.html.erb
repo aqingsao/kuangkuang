@@ -17,3 +17,6 @@
 	<span style="padding-right: 50px;"><%= link_to "Add to cart", add_carts_path(:productId=>@product.id)%></span>
 	<span><%= link_to "Back to Products", products_path %></span>
 </div>
+
+<%= link_to "View Cart", carts_path %>
+<%= link_to "View All Orders", orders_path %>

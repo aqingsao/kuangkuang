@@ -7,11 +7,11 @@ class OrdersController < ApplicationController
 
 	def create
 		@order = Order.new(:user_id => session[:user_id])
-		@order.id = format("%s%04d", @now.strftime("%Y%m%d"), @@orderIndex+=1) 
+		@order.id = format("%s%02d%04d", @now.strftime("%Y%m%d"), Random.rand(100), @@orderIndex+=1) 
+		logger.warn "User added product #{params[:productIds]} to order: #{@order.id}"
+
 		@order.products = Product.find(params[:productIds])
 		@order.save
-
-		logger.warn "User added product #{params[:productIds]} to order: #{@orderId}"
 
 		redirect_to @order
 	end
@@ -39,6 +39,11 @@ class OrdersController < ApplicationController
 
 	def index
 		@orders = Order.where(:user_id=>session[:user_id])
+	end
+
+
+	def pay
+		logger.warn "User started to pay order: #{params[:id]}"
 	end
 end
 
