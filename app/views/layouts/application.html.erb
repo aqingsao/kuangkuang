@@ -7,8 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<h1>Welcome to KuangKuang</h1>
+<h2>Hello, user <%= session[:user_id]%></h2>
 
 <%= yield %>
+
+<div style="padding: 50px 10px">
+	<span style="padding-right: 50px;"><%= link_to "View Products", controller: "products" %></span>
+	<span style="padding-right: 50px;"><%= link_to "View Cart", carts_path %></span>
+	<span style="padding-right: 50px;"><%= link_to "View Orders", orders_path %></span>
+</div>
 
 </body>
 </html>

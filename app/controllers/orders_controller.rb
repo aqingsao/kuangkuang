@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 	@@orderIndex = 1
 
 	def initialize()
+		super
 		@now = Time.now
   	end
 
@@ -12,6 +13,10 @@ class OrdersController < ApplicationController
 
 		@order.products = Product.find(params[:productIds])
 		@order.save
+
+		cart = Cart.find_by_user_id(session[:user_id])
+		cart.products = [] unless cart.nil?
+		cart.save unless cart.nil?
 
 		redirect_to @order
 	end
@@ -47,5 +52,6 @@ class OrdersController < ApplicationController
 		flash[:info] = "User payed order: #{params[:id]}"
 		redirect_to :action=>"index"
 	end
+
 end
 
