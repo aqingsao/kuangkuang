@@ -1,11 +1,27 @@
 <h1>Shopping cart</h1>
 
-<div>There are <%= @productIds.length %> products in this shopping cart</div>
+<div>There are <%= @products.length %> products in this shopping cart</div>
+
+<ul>
+
+
+<% @products.each do |product| %>
+		Product Id: <%= f.label :productId, product.id %>
+		<%= f.hidden_field :productId, name: 'productIds[]', value: productId%>
+<% end%>
+	<br/>
+<%= f.submit %>
+</ul>
+
 
 <%= form_for :order, url: orders_path do |f| %>
 	<% @productIds.each do |productId| %>
-		<%= f.label :productId, productId %>
+		Product id: <%= f.label :productId, productId %>
 		<%= f.hidden_field :productId, name: 'productIds[]', value: productId%>
+
+		<%= link_to 'Remove Product', [comment.post, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
 	<% end%>
 	<br/>
 	<%= f.submit %>

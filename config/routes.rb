@@ -20,6 +20,7 @@ Kuangkuang::Application.routes.draw do
   resources :products
 
   get 'carts/add', to: 'carts#add'
+  delete 'carts/remove', to: "carts#remove" 
 
   get 'orders/add', to: 'orders#add'
   resources :orders do
@@ -64,7 +65,7 @@ Kuangkuang::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'welcome#index'
+  root :to => 'application#index'
 
   # See how all your routes lay out with "rake routes"
 

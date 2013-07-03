@@ -1,4 +1,9 @@
 <p>
+  <strong>Id:</strong>
+  <%= @product.id %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @product.name %>
 </p>
@@ -10,7 +15,7 @@
 
 
 <div>
-	<%= link_to "Add to shopping cart", "/carts/add?id=#{@product.id}"%>
+	<%= link_to "Add to shopping cart", addToShoppingCart_product_path(@product)%>
 </div>	
 
 <div>

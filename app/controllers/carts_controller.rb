@@ -1,8 +1,15 @@
 class CartsController < ApplicationController
 	def add
-		logger.warn "User added the following products to cart: #{params[:id]}"
-		@productIds = params[:id].split(",").collect{|id| id.to_i}
+		userId = session[:user_id]
+		cart = ShoppingCart.
+		@@shoppingCart[session[:user_id]].push(Product.find(params[:id]))
 
-		logger.warn "#{params[:id]}, #{@productIds}"
+		@products = @@shoppingCart[session[:user_id]]
+
+		logger.warn "User added product #{params[:id]} to shopping cart"
+	end
+
+	def remove
+
 	end
 end
