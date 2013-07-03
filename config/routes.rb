@@ -17,7 +17,7 @@ Kuangkuang::Application.routes.draw do
   get 'products/compare', to: 'products#compare'
   resources :products
 
-  resources :carts do
+  resource :carts do
     member do
       get 'add'
       delete 'remove'

@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20130703035939) do
   end
 
   create_table "orders", :force => true do |t|
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

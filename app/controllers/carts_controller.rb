@@ -7,7 +7,7 @@ class CartsController < ApplicationController
 		
 		logger.warn "User added product #{params[:productId]} to shopping cart"
 
-		redirect_to @cart
+		redirect_to :action=>"show"
 	end
 
 	def show
@@ -17,7 +17,7 @@ class CartsController < ApplicationController
 		@cart.products.delete Product.find(params[:productId])
 		logger.warn "User removed product #{params[:productId]} from shopping cart"
 
-		redirect_to @cart
+		redirect_to :action=>"show"
 	end
 
 	protected 

@@ -8,9 +8,11 @@
 	<li>
 		product id: <%= f.label :productId, product.id %>
 		<%= f.hidden_field :productId, name: 'productIds[]', value: product.id%>
-		<%= link_to "Remove product", remove_cart_path(@cart, :productId=>product.id), :method=>:delete %>
+		<%= link_to "Remove product", remove_carts_path(:productId=>product.id), :method=>:delete %>
 	</li>
 	<% end%>
 </ul>
 	<%= f.submit "Buy Products" %>
 <% end%>
+
+<%= link_to "View Products", controller: "products" %>

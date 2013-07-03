@@ -1,19 +1,16 @@
-<h1>Order <%= @orderId%></h1>
+<h1>Orders for user <%= session[:user_id]%></h1>
+<% if flash[:info] %>
+  <p style="color:red"><%= flash[:info] %></p>
+<% end %>
 
-<div>There are <%= @productIds.length %> products:</div>
+<div>There are <%= @orders.length %> orders:</div>
 <ul>
-	<% @productIds.each do |productId|%>
-		<li><%= productId %></li>
+	<% @orders.each do |order|%>
+		<li>
+			<span><%= order.id %></span>
+			<span><%= link_to "View Order", orders_path(order) %></span>
+			<span><%= link_to "Cancel Order", cancel_order_path(order) %></span>
+			<span><%= link_to "Confirm Order", confirm_order_path(order) %></span>
+		</li>
 	<% end%>
 </ul>
-
-<div>
-	<%= link_to "Cancel Order", cancel_order_path(@orderId) %>
-</div>
-<div>
-	<%= link_to "Confirm Order", confirm_order_path(@orderId) %>
-</div>
-
-<div>
-	<%= link_to "View Orders", orders_path %>
-</div>

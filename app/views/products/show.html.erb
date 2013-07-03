@@ -14,6 +14,6 @@
 </p>
 
 <div>
-	<span style="padding-right: 50px;"><%= link_to "Add to cart", add_cart_path(@cart, :productId=>@product.id)%></span>
+	<span style="padding-right: 50px;"><%= link_to "Add to cart", add_carts_path(:productId=>@product.id)%></span>
 	<span><%= link_to "Back to Products", products_path %></span>
 </div>
