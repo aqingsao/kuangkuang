@@ -14,7 +14,10 @@ class CartsController < ApplicationController
 	end
 
 	def remove
+		@cart.products.delete Product.find(params[:productId])
+		logger.warn "User removed product #{params[:productId]} from shopping cart"
 
+		redirect_to @cart
 	end
 
 	protected 
