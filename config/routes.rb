@@ -18,6 +18,7 @@ Kuangkuang::Application.routes.draw do
   resources :products
 
   get 'carts/add', to: 'carts#add'
+  get 'carts/show', to: 'carts#show'
   delete 'carts/remove', to: "carts#remove" 
 
   get 'orders/add', to: 'orders#add'

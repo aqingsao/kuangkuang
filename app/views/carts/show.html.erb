@@ -1,11 +1,11 @@
 <h1>Shopping cart</h1>
 
-<div>There are <%= @productIds.length %> products in this shopping cart</div>
+<div>There are <%= @cart.products.length %> products in this shopping cart</div>
 
 <%= form_for :order, url: orders_path do |f| %>
-	<% @productIds.each do |productId| %>
-		<%= f.label :productId, productId %>
-		<%= f.hidden_field :productId, name: 'productIds[]', value: productId%>
+	<% @cart.products.each do |product| %>
+		<%= f.label :productId, product.id %>
+		<%= f.hidden_field :productId, name: 'productIds[]', value: product.id%>
 	<% end%>
 	<br/>
 	<%= f.submit %>
