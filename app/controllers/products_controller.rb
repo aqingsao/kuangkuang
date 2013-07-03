@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
 
 	def show
 		@product = Product.find(params[:id])
+		@cart =Cart.find_by_user_id(session[:user_id])
 		logger.warn "User is viewing detail of product #{params[:id]}"
 	end
 	

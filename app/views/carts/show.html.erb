@@ -3,10 +3,14 @@
 <div>There are <%= @cart.products.length %> products in this shopping cart</div>
 
 <%= form_for :order, url: orders_path do |f| %>
+<ul>
 	<% @cart.products.each do |product| %>
-		<%= f.label :productId, product.id %>
+	<li>
+		product id: <%= f.label :productId, product.id %>
 		<%= f.hidden_field :productId, name: 'productIds[]', value: product.id%>
+		<%= link_to "Remove product", remove_cart_path(@cart, :productId=>product.id) %>
+	</li>
 	<% end%>
-	<br/>
-	<%= f.submit %>
+</ul>
+	<%= f.submit "Buy Products" %>
 <% end%>

@@ -17,9 +17,12 @@ Kuangkuang::Application.routes.draw do
   get 'products/compare', to: 'products#compare'
   resources :products
 
-  get 'carts/add', to: 'carts#add'
-  get 'carts/show', to: 'carts#show'
-  delete 'carts/remove', to: "carts#remove" 
+  resources :carts do
+    member do
+      get 'add'
+      delete 'remove'
+    end
+  end
 
   get 'orders/add', to: 'orders#add'
   resources :orders do
