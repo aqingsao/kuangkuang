@@ -1,17 +1,17 @@
-<h1>Order <%= @orderId%></h1>
+<h1>Order <%= @order.id%></h1>
 
-<div>There are <%= @productIds.length %> products:</div>
+<div>There are <%= @order.products.length %> products:</div>
 <ul>
-	<% @productIds.each do |productId|%>
-		<li><%= productId %></li>
+	<% @order.products.each do |product|%>
+		<li><%= product.id %></li>
 	<% end%>
 </ul>
 
 <div>
-	<%= link_to "Cancel Order", cancel_order_path(@orderId) %>
+	<%= link_to "Cancel Order", cancel_order_path(@order) %>
 </div>
 <div>
-	<%= link_to "Confirm Order", confirm_order_path(@orderId) %>
+	<%= link_to "Confirm Order", confirm_order_path(@order) %>
 </div>
 
 <div>
