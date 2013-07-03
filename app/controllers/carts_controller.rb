@@ -11,6 +11,7 @@ class CartsController < ApplicationController
 	end
 
 	def show
+		logger.warn "User added product #{params[:productId]} to shopping cart"
 	end
 
 	def remove
@@ -23,8 +24,8 @@ class CartsController < ApplicationController
 	protected 
 
 	def loadCart
-		userId =session[:userId]
+		userId =session[:user_id]
 		@cart = Cart.find_by_user_id(userId)
-		@cart = Cart.create(:user_id=>userId) if @cart == nil
+		@cart = Cart.create(:user_id=>userId) if @cart.nil?
 	end
 end
