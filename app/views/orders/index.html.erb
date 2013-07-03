@@ -8,9 +8,11 @@
 	<% @orders.each do |order|%>
 		<li>
 			<span><%= order.id %></span>
-			<span><%= link_to "View Order", orders_path(order) %></span>
+			<span><%= link_to "View Order", order_path(order) %></span>
 			<span><%= link_to "Cancel Order", cancel_order_path(order) %></span>
 			<span><%= link_to "Confirm Order", confirm_order_path(order) %></span>
 		</li>
 	<% end%>
 </ul>
+
+<%= link_to "View Products", controller: "products" %>
