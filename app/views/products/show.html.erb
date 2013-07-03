@@ -15,9 +15,6 @@
 
 
 <div>
-	<%= link_to "Add to shopping cart", addToShoppingCart_product_path(@product)%>
-</div>	
-
-<div>
-	<%= link_to "Back to Products", products_path %>
+	<span style="padding-right: 50px;"><%= link_to "Add to cart", carts_add_path(@product)%></span>
+	<span><%= link_to "Back to Products", products_path %></span>
 </div>

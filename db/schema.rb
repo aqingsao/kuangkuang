@@ -14,8 +14,14 @@
 ActiveRecord::Schema.define(:version => 20130703035939) do
 
   create_table "carts", :force => true do |t|
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "carts_products", :force => true do |t|
+    t.integer "cart_id"
+    t.integer "product_id"
   end
 
   create_table "orders", :force => true do |t|

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     session[:user_id] = params[:user]
     cookies[:session_id] = session[:session_id]
   	logger.warn "User #{session[:user_id]} logged in successfully with session id: #{session[:session_id]}"
-  	# redirect_to "/"
+  	redirect_to "/"
   end
 
   def logout
@@ -17,5 +17,6 @@ class ApplicationController < ActionController::Base
   end
 
   def index
+    
   end
 end
