@@ -11,7 +11,7 @@ class CartsController < ApplicationController
 	end
 
 	def show
-		logger.warn "User added product #{params[:productId]} to shopping cart"
+		logger.warn "User has #{@cart.products.length} products in shopping cart"
 	end
 
 	def remove

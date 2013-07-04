@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
 		cart.products = [] unless cart.nil?
 		cart.save unless cart.nil?
 
-		redirect_to @order
+		render json: {order: @order.id}
 	end
 
 	def show

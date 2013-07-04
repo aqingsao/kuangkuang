@@ -12,6 +12,7 @@
       <td><%= product.name %></td>
       <td><%= product.price %></td>
       <td><%= link_to "View Detail", product_path(product.id) %></td>
+      <td><%= link_to "Add to cart", add_carts_path(:productId=>product.id)%></td>
     </tr>
   <% end %>
 </table>
