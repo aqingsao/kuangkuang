@@ -21,6 +21,13 @@ class CartsController < ApplicationController
 		redirect_to :action=>"show"
 	end
 
+	def removeAll
+		@cart.products = []
+		logger.warn "User removed all products from shopping cart"
+
+		redirect_to :action=>"show"
+	end
+
 	protected 
 
 	def loadCart

@@ -21,6 +21,7 @@ Kuangkuang::Application.routes.draw do
     member do
       get 'add'
       delete 'remove'
+      delete 'removeAll'
     end
   end
 

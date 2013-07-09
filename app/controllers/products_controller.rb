@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 	end
 
 	def ids
-		render json: Product.all().collect{|p| p.id}
+		render json: Product.all.sort_by{|p| p[:price]}.collect{|p| p.id}
 	end
 
 	def create
