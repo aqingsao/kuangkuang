@@ -14,7 +14,7 @@ Kuangkuang::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
 
-  get 'products/compare', to: 'products#compare'
+  get 'products/ids', to: 'products#ids'
   resources :products
 
   resource :carts do

@@ -11,11 +11,11 @@ def productId
 	sprintf("34%03d%02d", rand(1000), @@productIndex += 1).to_i
 end
 
-100.times do |i|
-	p = Product.new(:name=>"product #{i}", :price=>rand(10000).to_f)
-	p.id = productId
-	p.save!
-end
+# 100.times do |i|
+# 	p = Product.new(:name=>"product #{i}", :price=>rand(10000).to_f)
+# 	p.id = productId
+# 	p.save!
+# end
 # p1 = Product.new(:name=>'IPad 3', :price=>3888.00)
 # p2 = Product.new(:name=>'Sony Digital Camera', :price=>1999.00)
 # p3 = Product.new(:name=>'iPone 5', :price=>4666.00)

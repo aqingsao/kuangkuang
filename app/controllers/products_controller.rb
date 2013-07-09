@@ -2,6 +2,10 @@ class ProductsController < ApplicationController
 	def new
 	end
 
+	def ids
+		render json: Product.all().collect{|p| p.id}
+	end
+
 	def create
 		@product = Product.new(params[:product])
 		@product.id = params[:product][:id]
