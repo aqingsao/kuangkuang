@@ -4,8 +4,12 @@ class ProductsController < ApplicationController
 
 	def create
 		@product = Product.new(params[:product])
+		@product.id = params[:product][:id]
 		@product.save
-		redirect_to @product
+		logger.warn "Add new product #{@product.id} with price #{@product.price.to_f}, operator: Zhang Ran"
+
+		flash[:info] = "Add product: #{@product}"
+		redirect_to :action => "index"
 	end
 
 	def show
