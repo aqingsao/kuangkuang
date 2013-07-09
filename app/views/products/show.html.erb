@@ -15,4 +15,5 @@
 
 <div>
 	<span style="padding-right: 50px;"><%= link_to "Add to cart", add_carts_path(:productId=>@product.id)%></span>
+    <span><%= link_to "Edit", edit_product_path(@product.id) %></span>
 </div>

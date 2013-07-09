@@ -22,4 +22,18 @@ class ProductsController < ApplicationController
 		logger.warn "User is comparing products #{params[:id]}"
 		@productIds = params[:id].split(",").collect{|id| id.to_i}
 	end
+
+	def edit
+		@product = Product.find(params[:id])
+	end
+
+	def update
+		@product = Product.find(params[:id])
+		oldPrice = @product.price
+		@product.price = params[:product][:price]
+		@product.save
+		logger.warn "Update price of product #{params[:id]} from #{oldPrice.to_f} to #{@product.price.to_f}, operator: Zhang Ran"
+
+		redirect_to @product
+	end
 end
